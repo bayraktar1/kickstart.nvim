@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -236,6 +236,14 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
+  -- Snakemake plugin
+  {
+    'snakemake/snakemake',
+    ft = { 'snakemake' },
+    rtp = 'misc/vim',
+    opts = {},
+    config = function() end,
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -971,6 +979,16 @@ require('lazy').setup({
     },
   },
 })
+
+-- Add filetype detection
+vim.filetype.add {
+  extension = {
+    smk = 'snakemake', -- Detect .smk files as Snakemake
+  },
+  filename = {
+    Snakefile = 'snakemake', -- Detect Snakefile as Snakemake
+  },
+}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
