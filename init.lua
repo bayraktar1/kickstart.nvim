@@ -236,11 +236,24 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
-  -- Snakemake plugin
   {
     'snakemake/snakemake',
     ft = { 'snakemake' },
     rtp = 'misc/vim',
+    opts = {},
+    config = function() end,
+  },
+  {
+    'tpope/vim-commentary',
+    ft = { '' },
+    rtp = 'plugin',
+    opts = {},
+    config = function() end,
+  },
+  {
+    'bioSyntax/bioSyntax-vim',
+    ft = { '' },
+    rtp = '.',
     opts = {},
     config = function() end,
   },
